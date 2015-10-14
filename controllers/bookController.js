@@ -11,14 +11,23 @@ var bookController = function(Book) {
     /////////////
     function post(req, res) {
         var book = new Book(req.body);
+        
+        if (!req.body.title) {
+            res.status(400);
+            res.send('Title is required');
+        } else {
+            book.save();
+            res.status(201);
+            res.send(book);
+        }
 
-        book.save(function(err) {
-            if (err) {
-                res.status(401).send(err);
-            } else {
-                res.json(book);
-            }
-        });
+        // book.save(function(err) {
+        //     if (err) {
+        //         res.status(400).send(err);
+        //     } else {
+        //         res.json(book);
+        //     }
+        // });
 
         //res.status(201).send(book);
     }
