@@ -1,12 +1,12 @@
 var express = require('express'),
 	mongoose = require('mongoose'),
 	bodyParser = require('body-parser');
-	
-var db; 
-if (process.env.ENV === 'Test') {
-	db = mongoose.connect('mongodb://localhost:27017/bookAPI_test');
+
+var db;
+if (process.env.ENV == 'Test') {
+	db = mongoose.connect('mongodb://localhost/bookAPI_test');
 } else {
-	db = mongoose.connect('mongodb://localhost:27017/bookAPI');
+	db = mongoose.connect('mongodb://localhost/bookAPI');
 }
 // var db = mongoose.connection;
 // db.on('error', function(err) {
@@ -15,10 +15,6 @@ if (process.env.ENV === 'Test') {
 // db.once('open', function() {
 // 	console.log('Mongo is connected');
 // });
-var Book = require('./models/bookModel');
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
 
 var Book = require('./models/bookModel');
 var app = express();
@@ -45,3 +41,5 @@ app.get('/', function(req, res) {
 app.listen(port, function() {
 	console.log('App is up and running on PORT: ' + port);
 });
+
+module.exports = app;

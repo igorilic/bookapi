@@ -1,0 +1,18 @@
+{
+  "name": "bookapi",
+  "version": "0.0.0",
+  "homepage": "https://github.com/igorilic/bookapi",
+  "authors": [
+    "Igor Ilic <ilicigor@outlook.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-resource": "~1.4.7",
+    "lumx": "~0.3.94"
+  }
+}
