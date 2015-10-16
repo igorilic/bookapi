@@ -1,0 +1,20 @@
+<h1>New book</h1>
+
+<div class="mt++" flex-container="row" flex-gutter="24">
+    <div flex-item>
+        <form data-ng-submit="vm.crud.createBook()">
+            <md-input-container>
+                <label>Title</label>
+                <input ng-model="vm.title">
+            </md-input-container>
+            <md-input-container>
+                <label>Author</label>
+                <input ng-model="vm.author">
+            </md-input-container>
+            <md-input-container>
+                <label>Genre</label>
+                <input ng-model="vm.genre">
+            </md-input-container>
+            <md-button type="submit" class="md-primary md-raised md-hue-2" aria-label="Save Book">Save</md-button>
+        </form>
+    </div>

@@ -8,7 +8,7 @@
     BooksController.$inject = ['$resource', '$stateParams', '$location', 'BookService'];
     function BooksController($resource, $stateParams, $location, BookService) {
         var vm = this;
-        vm.title = 'Books';
+        
         vm.crud = {
             createBook: createBook,
             books: books,
@@ -28,10 +28,16 @@
 
         // CREATE
         function createBook() {
+            // vm.book = new BookService();
+            // vm.book = {
+            //     title: vm.title,
+            //     genre: vm.genre,
+            //     author: vm.author
+            // }
             var book = new BookService({
-                title: this.title,
-                genre: this.genre,
-                author: this.author
+                title: vm.title,
+                genre: vm.genre,
+                author: vm.author
             });
 
             book.$save(function(response) {

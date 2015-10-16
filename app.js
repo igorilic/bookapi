@@ -31,11 +31,13 @@ bookRouter.use(function(req, res, next) {
     next();
 });
 
+app.use(express.static('./client/'));
+app.use(express.static('./'));
 app.use('/api/books', bookRouter);
 // app.use('/api/author', authorRouter);
 
 app.get('/', function(req, res) {
-	res.send('Welcome!');
+	res.sendfile(__dirname + '/client/index.html');
 });
 
 app.listen(port, function() {

@@ -1,0 +1,16 @@
+<div data-ng-controller="ShellController as vm" ng-cloak="">
+	<header>
+		<div >
+			<h1>{{ vm.title }}</h1>
+		</div>
+	</header>
+	<md-content>
+		<section id="content" layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+			<md-button class="md-warn md-raised md-hue-1" ui-sref="books" >Books</md-button>
+		</section>
+		<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+			<div ui-view></div>
+		</section>
+	</md-content>
+	
+</div>

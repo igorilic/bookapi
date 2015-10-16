@@ -3,30 +3,17 @@
 
     angular
         .module('app.books')
-        .run(appRun);
-
-    appRun.$inject = ['routerHelper'];
-    /* @ngInject */
-    function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
+        .config(routes);
+    
+    routes.$inject = ['$stateProvider']
+    function routes($stateProvider) {
+        $stateProvider
+            .state('books', {
+                url: '/books',
+                templateUrl: 'books/books.html',
+                controller: 'BooksController',
+                controllerAs: 'vm'
+            })
     }
-
-    function getStates() {
-        return [
-            {
-                state: 'contact',
-                config: {
-                    url: '/contact',
-                    templateUrl: 'app/contact/contact.html',
-                    controller: 'ContactController',
-                    controllerAs: 'vm',
-                    title: 'contact',
-                    settings: {
-                        nav: 3,
-                        content: '<i class="fa fa-dashboard"></i> Contact'
-                    }
-                }
-            }
-        ];
-    }
+    
 })();
