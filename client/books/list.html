@@ -1,0 +1,43 @@
+<h1>Books</h1>
+
+<div class="mt++" flex-container="row" flex-gutter="24">
+    <div flex-item>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Genre</th>
+                        <th>Read</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="book in vm.books">
+                        <td>{{book.title}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.genre}}</td>
+                        <td>{{book.read}}</td>
+                        <td>
+                            <md-button class="md-fab md-mini md-primary md-hue-3"
+                                       aria-label="View"
+                                       ui-sref="detail">
+                                       V
+                            </md-button>
+                            <md-button class="md-fab md-mini md-warn md-hue-1"
+                                       aria-label="Delete"
+                                       data-ng-click="vm.crud.deleteBook(book)">
+                                       D
+                            </md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div flex-container="row">
+    <div ui-view="detail"></div>
+</div>

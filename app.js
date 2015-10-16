@@ -32,6 +32,7 @@ bookRouter.use(function(req, res, next) {
 });
 
 app.use(express.static('./client/'));
+app.use('/partials/', express.static('./client/layout/partials/'))
 app.use(express.static('./'));
 app.use('/api/books', bookRouter);
 // app.use('/api/author', authorRouter);

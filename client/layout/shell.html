@@ -4,13 +4,36 @@
 			<h1>{{ vm.title }}</h1>
 		</div>
 	</header>
+    <nav>
+        <div layout="row">
+            <md-sidenav md-component-id="left" class="md-sidenav-left">
+                <md-list ng-cloak="">
+                    <md-subheader class="md-no-sticky">Books Menu</md-subheader>
+                    <md-list-item>
+                         <md-button ui-sref="list">List of Books</md-button>
+                    </md-list-item>
+                    <md-list-item>
+                         <md-button ui-sref="books">New Book</md-button>
+                    </md-list-item>
+                    <md-list-item>
+                         <md-button ui-sref="update">Edit Book</md-button>
+                    </md-list-item>
+                </md-list>
+            </md-sidenav>
+            <md-content>
+                <md-button ng-click="vm.openLeftMenu()">
+                     Menu
+                </md-button>
+            </md-content>
+        </div>
+    </nav>
 	<md-content>
-		<section id="content" layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+		<!--<section id="content" layout="row"  layout-align="center center" layout-wrap="">
 			<md-button class="md-warn md-raised md-hue-1" ui-sref="books" >Books</md-button>
-		</section>
-		<section layout="row" layout-sm="column" layout-align="center center" layout-wrap="">
+		</section>-->
+		<section layout="row" layout-md="column" layout-align="center center" layout-wrap="">
 			<div ui-view></div>
 		</section>
 	</md-content>
-	
+
 </div>

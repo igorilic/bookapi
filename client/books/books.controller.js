@@ -8,7 +8,7 @@
     BooksController.$inject = ['$resource', '$stateParams', '$location', 'BookService'];
     function BooksController($resource, $stateParams, $location, BookService) {
         var vm = this;
-        
+        vm.books = BookService.query();
         vm.crud = {
             createBook: createBook,
             books: books,
@@ -42,6 +42,9 @@
 
             book.$save(function(response) {
                 $location.path('books/' + response._id);
+                vm.title='';
+                vm.genre='';
+                vm.author='';
             }, function(err) {
                 vm.error = err.data.message;
             });
@@ -57,7 +60,7 @@
         // UPDATE
         function updateBook() {
             vm.book.$update(function() {
-                $location.path('articles/' + vm.book._id);
+                $location.path('books/' + vm.book._id);
             }, function(err) {
                 vm.error = err.data.message;
             });
@@ -66,6 +69,7 @@
         function deleteBook(book) {
             if (book) {
                 book.$delete();
+                return BookService.query();
             }
 
         }
